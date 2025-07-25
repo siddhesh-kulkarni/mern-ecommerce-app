@@ -1,16 +1,51 @@
-# React + Vite
+# 🛒 MERN E-commerce Frontend (React + Vite)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is the **frontend of a modern e-commerce app**, built using **React + Vite**. It’s designed for speed, scalability, and modularity — ideal for building robust shopping experiences.
 
-Currently, two official plugins are available:
+> 💡 **Reference Design**:  
+> [https://demos.codezeel.com/prestashop/PRS21/PRS210502/en/](https://demos.codezeel.com/prestashop/PRS21/PRS210502/en/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## 🔗 Live Demo Links
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+| Environment | URL                                                                 |
+|-------------|----------------------------------------------------------------------|
+| 🟢 Production | [https://mern-ecommerce-eight-zeta.vercel.app/](https://mern-ecommerce-eight-zeta.vercel.app/) |
+| 🧪 Development | [https://mern-ecommerce-git-main-siddhesh-kulkarnis-projects.vercel.app/](https://mern-ecommerce-git-main-siddhesh-kulkarnis-projects.vercel.app/) |
+
+---
+
+## ⚙️ Getting Started
+
+To create a similar project using Vite:
+
+```bash
+# 1. Scaffold the project
+npm create vite@latest mern-ecommerce -- --template react
+
+# 2. Move into the project directory
+cd mern-ecommerce
+
+# 3. Install dependencies
+npm install
+
+# 4. Run the development server
+npm run dev
+
+mern-ecommerce/
+├── public/                 # Static files (images, icons, etc.)
+├── src/
+│   ├── assets/             # Local images and assets
+│   ├── Components/         # Reusable React components
+│   ├── pages/              # Main page views (Home, Product, etc.)
+│   ├── routes/             # Optional: routing setup
+│   ├── App.jsx             # Root app component
+│   └── main.jsx            # Entry point for React app
+├── .eslintrc.cjs           # ESLint config
+├── vite.config.js          # Vite build config
+├── package.json            # Dependencies and scripts
+└── README.md               # Project documentation
 
 
-## Reference Website
-https://demos.codezeel.com/prestashop/PRS21/PRS210502/en/
+Built with ❤️ using React + Vite
