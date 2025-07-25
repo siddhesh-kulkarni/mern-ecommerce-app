@@ -33,19 +33,32 @@ npm install
 # 4. Run the development server
 npm run dev
 
-mern-ecommerce/
-├── public/                 # Static files (images, icons, etc.)
-├── src/
-│   ├── assets/             # Local images and assets
-│   ├── Components/         # Reusable React components
-│   ├── pages/              # Main page views (Home, Product, etc.)
-│   ├── routes/             # Optional: routing setup
-│   ├── App.jsx             # Root app component
-│   └── main.jsx            # Entry point for React app
-├── .eslintrc.cjs           # ESLint config
-├── vite.config.js          # Vite build config
-├── package.json            # Dependencies and scripts
-└── README.md               # Project documentation
 
+## 🧱 Folder Structure
+
+mern-ecommerce-app/
+├── public/
+│ ├── images/ # Static images accessible via /images/*
+│ └── locales/ # Translation files for i18n (multi-language support)
+├── src/
+│ ├── assets/ # App-specific assets (logos, icons, etc.)
+│ ├── components/ # Reusable React components
+│ ├── pages/ # Main views like Home, Product, Cart, etc.
+│ ├── routes/ # React Router configuration (if used)
+│ ├── App.jsx # Root app component
+│ └── main.jsx # Entry point for React application
+├── .eslintrc.cjs # ESLint configuration
+├── vite.config.js # Vite build config
+├── package.json # Project metadata and scripts
+└── README.md # This file 📘
+
+---
+
+### 📁 Folder Highlights
+
+- `public/images/` – For static assets like banners, hero images, and logos that don’t change often.
+- `public/locales/` – Contains language JSON files for internationalization (e.g., `en.json`, `mr.json`). Useful with libraries like `i18next`.
+
+---
 
 Built with ❤️ using React + Vite
