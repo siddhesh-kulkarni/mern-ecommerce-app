@@ -3,14 +3,17 @@
 body {
   font-family: "Montserrat", sans-serif;
   font-optical-sizing: auto;
+  background-color: #F5F0F0;
 }
 
 /* *{margin: 0px; padding: 0px; box-sizing: border-box;} */
 
 .container {
-  width: 90%;
+  width: 95%;
   margin: auto;
 }
+
+
 
 /* header .top-strip{} */
 

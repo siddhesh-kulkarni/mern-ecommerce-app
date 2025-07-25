@@ -1,6 +1,11 @@
 {
-    "discountMessage" : "नवीन हंगामाच्या स्टाइल्सवर 50% पर्यंत सूट, मर्यादित कालावधीसाठी",
-    "helpCenter" : "मदत केंद्र",
-    "orderTracking" : "ऑर्डर ट्रॅकिंग",
-    "searchPlaceholder" : "उत्पादन शोधा..."
+  "discountMessage": "नवीन हंगामाच्या स्टाइल्सवर 50% पर्यंत सूट, मर्यादित कालावधीसाठी",
+  "helpCenter": "मदत केंद्र",
+  "orderTracking": "ऑर्डर ट्रॅकिंग",
+  "searchPlaceholder": "उत्पादन शोधा...",
+  "Login": "लॉगिन",
+  "Register": "रजिस्टर",
+  "Compare": "तुलना करें",
+  "Cart": "कार्ट",
+  "Wishlist": "विशलिस्ट"
 }

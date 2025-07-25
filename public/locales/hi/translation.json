@@ -1,6 +1,11 @@
 {
-    "discountMessage" : "नई सीज़न स्टाइल्स पर 50% तक की छूट, सीमित समय के लिए ही",
-    "helpCenter" : "हेल्प सेंटर",
-    "orderTracking" : "ऑर्डर ट्रैकिंग",
-    "searchPlaceholder" : "उत्पाद खोजें..."
+  "discountMessage": "नई सीज़न स्टाइल्स पर 50% तक की छूट, सीमित समय के लिए ही",
+  "helpCenter": "हेल्प सेंटर",
+  "orderTracking": "ऑर्डर ट्रैकिंग",
+  "searchPlaceholder": "उत्पाद खोजें...",
+  "Login": "लॉगिन",
+  "Register": "रजिस्टर",
+  "Compare": "तुलना करें",
+  "Cart": "कार्ट",
+  "Wishlist": "विशलिस्ट"
 }
