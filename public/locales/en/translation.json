@@ -2,5 +2,11 @@
   "discountMessage": "Get up to 50% off new season styles, limited time only",
   "helpCenter": "Help Center",
   "orderTracking": "Order Tracking",
-  "searchPlaceholder": "Search for products..."
+  "searchPlaceholder": "Search for products...",
+  "Login": "Login",
+  "Register": "Register",
+  "Compare": "Compare",
+  "Cart": "Cart",
+  "Wishlist": "Wishlist",
+  "shopByCategory" : "Shop By Category"
 }
