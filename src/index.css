@@ -4,6 +4,7 @@ body {
   font-family: "Montserrat", sans-serif;
   font-optical-sizing: auto;
   background-color: #F5F0F0;
+  color : rgba(0,0,0,0.7)
 }
 
 /* *{margin: 0px; padding: 0px; box-sizing: border-box;} */
@@ -12,8 +13,6 @@ body {
   width: 95%;
   margin: auto;
 }
-
-
 
 /* header .top-strip{} */
 
@@ -26,3 +25,5 @@ body {
 }
 
 .MuiBadge-badge { background: #ff5252}
+
+nav ul button{text-transform: capitalize !important; color: rgba(0,0,0,0.7) !important;}
