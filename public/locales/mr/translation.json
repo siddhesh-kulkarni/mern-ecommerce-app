@@ -5,7 +5,18 @@
   "searchPlaceholder": "उत्पादन शोधा...",
   "Login": "लॉगिन",
   "Register": "रजिस्टर",
-  "Compare": "तुलना करें",
+  "Compare": "तुलना करा",
   "Cart": "कार्ट",
-  "Wishlist": "विशलिस्ट"
+  "Wishlist": "विशलिस्ट",
+  "shopByCategory": "श्रेणी नुसार खरेदी करा",
+  "home": "घर",
+  "fashion": "फॅशन",
+  "electronics": "इलेक्ट्रॉनिक्स",
+  "bags": "पिशव्या",
+  "footwear": "पादत्राणे",
+  "groceries": "किराणा",
+  "beauty": "सौंदर्य",
+  "wellness": "आरोग्य",
+  "jwellery": "दागिने",
+  "freeInternationalDelivery": "मोफत आंतरराष्ट्रीय डिलिव्हरी"
 }

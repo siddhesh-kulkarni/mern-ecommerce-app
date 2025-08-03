@@ -8,5 +8,15 @@
   "Compare": "Compare",
   "Cart": "Cart",
   "Wishlist": "Wishlist",
-  "shopByCategory" : "Shop By Category"
+  "shopByCategory" : "Shop By Category",
+  "home" : "Home",
+  "fashion" : "Fashion",
+  "electronics" : "Electronics",
+  "bags" : "Bags",
+  "footwear" : "Footwear",
+  "groceries" : "Groceries",
+  "beauty" : "Beauty",
+  "wellness" : "Wellness",
+  "jwellery" : "Jwellery",
+  "freeInternationalDelivery" : "Free International Delivery"
 }
