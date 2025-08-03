@@ -27,3 +27,7 @@ body {
 .MuiBadge-badge { background: #ff5252}
 
 nav ul button{text-transform: capitalize !important; color: rgba(0,0,0,0.7) !important;}
+
+.categoryPanel button{
+  text-transform: capitalize !important;
+}
