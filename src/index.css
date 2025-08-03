@@ -4,7 +4,8 @@ body {
   font-family: "Montserrat", sans-serif;
   font-optical-sizing: auto;
   background-color: #F5F0F0;
-  color : rgba(0,0,0,0.7)
+  color : rgba(0,0,0,0.7);
+  overflow-x: hidden;
 }
 
 /* *{margin: 0px; padding: 0px; box-sizing: border-box;} */
@@ -31,3 +32,8 @@ nav ul button{text-transform: capitalize !important; color: rgba(0,0,0,0.7) !imp
 .categoryPanel button{
   text-transform: capitalize !important;
 }
+
+.nav li:hover .submenu{ opacity: 1 !important; visibility: inherit; top: 100%; z-index: 2;}
+.nav li .submenu{ visibility: hidden; }
+
+.sliderHome {overflow: inherit !important;}
