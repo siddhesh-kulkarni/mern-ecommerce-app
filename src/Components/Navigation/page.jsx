@@ -34,7 +34,7 @@ const Navigation = () => {
                   className="link transtion text-[14px] font-[500]"
                 >
                   <Button className="link transition !font-[500] !text-[rgba(0,0,0,0.8)] hover:!text-[#ff5252]">
-                    Home
+                    {t(`home`)}
                   </Button>
                 </Link>
               </li>
@@ -44,7 +44,7 @@ const Navigation = () => {
                   className="link transtion text-[14px] font-[500]"
                 >
                   <Button className="link transition !font-[500] !text-[rgba(0,0,0,0.8)] hover:!text-[#ff5252]">
-                    Fashion
+                    {t(`fashion`)}
                   </Button>
                 </Link>
               </li>
@@ -54,7 +54,7 @@ const Navigation = () => {
                   className="link transtion text-[14px] font-[500]"
                 >
                   <Button className="link transition !font-[500] !text-[rgba(0,0,0,0.8)] hover:!text-[#ff5252]">
-                    Electronics
+                    {t(`electronics`)}
                   </Button>
                 </Link>
               </li>
@@ -64,7 +64,7 @@ const Navigation = () => {
                   className="link transtion text-[14px] font-[500]"
                 >
                   <Button className="link transition !font-[500] !text-[rgba(0,0,0,0.8)] hover:!text-[#ff5252]">
-                    Bags
+                    {t(`bags`)}
                   </Button>
                 </Link>
               </li>
@@ -74,7 +74,7 @@ const Navigation = () => {
                   className="link transtion text-[14px] font-[500]"
                 >
                   <Button className="link transition !font-[500] !text-[rgba(0,0,0,0.8)] hover:!text-[#ff5252]">
-                    Footwear
+                    {t(`footwear`)}
                   </Button>
                 </Link>
               </li>
@@ -84,7 +84,7 @@ const Navigation = () => {
                   className="link transtion text-[14px] font-[500]"
                 >
                   <Button className="link transition !font-[500] !text-[rgba(0,0,0,0.8)] hover:!text-[#ff5252]">
-                    Groceries
+                    {t(`groceries`)}
                   </Button>
                 </Link>
               </li>
@@ -94,7 +94,7 @@ const Navigation = () => {
                   className="link transtion text-[14px] font-[500]"
                 >
                   <Button className="link transition !font-[500] !text-[rgba(0,0,0,0.8)] hover:!text-[#ff5252]">
-                    Beauty
+                    {t(`beauty`)}
                   </Button>
                 </Link>
               </li>
@@ -104,7 +104,7 @@ const Navigation = () => {
                   className="link transtion text-[14px] font-[500]"
                 >
                   <Button className="link transition !font-[500] !text-[rgba(0,0,0,0.8)] hover:!text-[#ff5252]">
-                    Wellness
+                    {t(`wellness`)}
                   </Button>
                 </Link>
               </li>
@@ -114,7 +114,7 @@ const Navigation = () => {
                   className="link transtion text-[14px] font-[500]"
                 >
                   <Button className="link transition !font-[500] !text-[rgba(0,0,0,0.8)] hover:!text-[#ff5252]">
-                    Jwellery
+                    {t(`jwellery`)}
                   </Button>
                 </Link>
               </li>
@@ -124,7 +124,7 @@ const Navigation = () => {
           <div className="col_3 w-[20%]">
             <p className="text-[13px] font-[500] flex items-center gap-3 mt-0 mb-0">
               <GoRocket className="text-[18px]" />
-              Free International Delivery
+              {t(`freeInternationalDelivery`)}
             </p>
           </div>
         </div>
