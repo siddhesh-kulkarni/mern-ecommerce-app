@@ -21,8 +21,8 @@ This is the **frontend of a modern e-commerce app**, built using **React + Vite*
 To create a similar project using Vite:
 
 ```bash
-# 1. Scaffold the project
-npm create vite@latest mern-ecommerce -- --template react
+# 1. Clone repositry
+https://github.com/siddhesh-kulkarni/mern-ecommerce-app.git
 
 # 2. Move into the project directory
 cd mern-ecommerce-webapp
