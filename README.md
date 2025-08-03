@@ -25,7 +25,7 @@ To create a similar project using Vite:
 npm create vite@latest mern-ecommerce -- --template react
 
 # 2. Move into the project directory
-cd mern-ecommerce
+cd mern-ecommerce-webapp
 
 # 3. Install dependencies
 npm install
