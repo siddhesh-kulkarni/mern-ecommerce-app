@@ -57,7 +57,7 @@ mern-ecommerce-app/
 ### 📁 Folder Highlights
 
 - `public/images/` – For static assets like banners, hero images, and logos that don’t change often.
-- `public/locales/` – Contains language JSON files for internationalization (e.g., `en.json`, `mr.json`). Useful with libraries like `i18next`.
+- `public/locales/` – Contains language JSON files for internationalization (e.g., `translation.json`). Useful with libraries like `i18next`.
 
 ---
 
