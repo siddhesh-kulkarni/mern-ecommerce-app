@@ -2,7 +2,7 @@ import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
-import { Navigation } from "swiper/modules";
+import { Autoplay, Navigation } from "swiper/modules";
 
 const Slider = () => {
   return (
@@ -11,9 +11,14 @@ const Slider = () => {
         <div className="container">
           <Swiper
             navigation={true}
-            modules={[Navigation]}
+            modules={[Navigation, Autoplay]}
             className="sliderHome"
             spaceBetween={10}
+            autoplay={{
+              delay: 2500,
+              disableOnInteraction: false,
+            }}
+            loop={true}
           >
             <SwiperSlide>
               <div className="item rounded-[20px] overflow-hidden">
