@@ -1,10 +1,15 @@
 @import "tailwindcss";
 
+::-webkit-scrollbar{width: 10px !important; height: 5px !important;}
+::-webkit-scrollbar-thumb{background: #ff5252;}
+::-webkit-scrollbar-track{background: #fff;}
+
+
 body {
   font-family: "Montserrat", sans-serif;
   font-optical-sizing: auto;
-  background-color: #F5F0F0;
-  color : rgba(0,0,0,0.7);
+  background-color: #f5f0f0;
+  color: rgba(0, 0, 0, 0.7);
   overflow-x: hidden;
 }
 
@@ -17,23 +22,81 @@ body {
 
 /* header .top-strip{} */
 
-.bg-primary{
-   background: #ff5252 !important;
+.bg-primary {
+  background: #ff5252 !important;
 }
 
-.link:hover{
-  color:#ff5252;
+.link:hover {
+  color: #ff5252;
 }
 
-.MuiBadge-badge { background: #ff5252}
+.MuiBadge-badge {
+  background: #ff5252;
+}
 
-nav ul button{text-transform: capitalize !important; color: rgba(0,0,0,0.7) !important;}
+nav ul button {
+  text-transform: capitalize !important;
+  color: rgba(0, 0, 0, 0.7) !important;
+}
 
-.categoryPanel button{
+.categoryPanel button {
   text-transform: capitalize !important;
 }
 
-.nav li:hover .submenu{ opacity: 1 !important; visibility: inherit; top: 100%; z-index: 2;}
-.nav li .submenu{ visibility: hidden; }
+.nav li:hover .submenu {
+  opacity: 1 !important;
+  visibility: inherit;
+  top: 100%;
+  z-index: 2;
+}
+.nav li .submenu {
+  visibility: hidden;
+}
 
-.sliderHome {overflow: inherit !important;}
+.sliderHome {
+  overflow: inherit !important;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  border-radius: 100%;
+  background-color: #f5f0f0;
+  width: 45px;
+  height: 45px;
+  min-width: 45px;
+  box-shadow: 0 1px 3px #0000001f, 0 1px 2px #0000003d !important;
+}
+
+.swiper-button-prev:after,
+.swiper-button-next:after {
+  font-size: 22px !important;
+  color: #000;
+}
+
+.swiper-button-prev:hover, .swiper-button-next:hover{background: #ff5252 !important;}
+.swiper-button-prev:hover::after, .swiper-button-next:hover::after { color: #fff !important;}
+
+
+.homeCatSlider {
+  overflow: inherit !important;
+}
+
+.homeCatSlider .item {border: 1px solid rgba(0,0,0,0.1)}
+
+.homeCatSlider .swiper-button-prev, .homeCatSlider .swiper-button-next {
+  width: 30px;
+  height: 30px;
+  min-width: 30px;
+}
+
+.homeCatSlider .swiper-button-prev:after, .homeCatSlider .swiper-button-next:after {
+  font-size: 16px !important;
+}
+
+.homeCatSlider .item:hover img{transform: scale(1.1);} 
+
+.homeCatSlider .swiper-button-prev:hover, .homeCatSlider .swiper-button-next:hover{background: #ff5252 !important;}
+.homeCatSlider .swiper-button-prev:hover::after, .homeCatSlider .swiper-button-next:hover::after {color: #fff !important;}
