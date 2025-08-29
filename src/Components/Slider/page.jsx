@@ -7,8 +7,8 @@ import { Autoplay, Navigation } from "swiper/modules";
 const Slider = () => {
   return (
     <>
-      <div className="homeSlider py-4">
-        <div className="container">
+      <div className="homeSlider py-2 lg:py-4">
+        <div className="container overflow-hidden">
           <Swiper
             navigation={true}
             modules={[Navigation, Autoplay]}
@@ -21,55 +21,55 @@ const Slider = () => {
             loop={true}
           >
             <SwiperSlide>
-              <div className="item rounded-[20px] overflow-hidden">
+              <div className="item rounded-[8px] lg:rounded-[20px] overflow-hidden">
                 <img
                   src="images/Slider/slider1.jpg"
-                  className="w-full"
+                  className="w-full h-[200px] lg:h-auto object-cover"
                   alt="Banner Images"
                 />
               </div>
             </SwiperSlide>
             <SwiperSlide>
-              <div className="item rounded-[20px] overflow-hidden">
+              <div className="item rounded-[8px] lg:rounded-[20px] overflow-hidden">
                 <img
                   src="images/Slider/slider2.jpg"
-                  className="w-full"
+                  className="w-full h-[200px] lg:h-auto object-cover"
                   alt="Banner Images"
                 />
               </div>
             </SwiperSlide>
             <SwiperSlide>
-              <div className="item rounded-[20px] overflow-hidden">
+              <div className="item rounded-[8px] lg:rounded-[20px] overflow-hidden">
                 <img
                   src="images/Slider/slider3.jpg"
-                  className="w-full"
+                  className="w-full h-[200px] lg:h-auto object-cover"
                   alt="Banner Images"
                 />
               </div>
             </SwiperSlide>
             <SwiperSlide>
-              <div className="item rounded-[20px] overflow-hidden">
+              <div className="item rounded-[8px] lg:rounded-[20px] overflow-hidden">
                 <img
                   src="images/Slider/slider4.jpg"
-                  className="w-full"
+                  className="w-full h-[200px] lg:h-auto object-cover"
                   alt="Banner Images"
                 />
               </div>
             </SwiperSlide>
             <SwiperSlide>
-              <div className="item rounded-[20px] overflow-hidden">
+              <div className="item rounded-[8px] lg:rounded-[20px] overflow-hidden">
                 <img
                   src="images/Slider/slider5.jpg"
-                  className="w-full"
+                  className="w-full h-[200px] lg:h-auto object-cover"
                   alt="Banner Images"
                 />
               </div>
             </SwiperSlide>
             <SwiperSlide>
-              <div className="item rounded-[20px] overflow-hidden">
+              <div className="item rounded-[8px] lg:rounded-[20px] overflow-hidden">
                 <img
                   src="images/Slider/slider6.jpg"
-                  className="w-full"
+                  className="w-full h-[200px] lg:h-auto object-cover"
                   alt="Banner Images"
                 />
               </div>
