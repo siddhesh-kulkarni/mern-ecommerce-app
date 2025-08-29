@@ -1,4 +1,6 @@
+import AdsBannerSlider from "../../Components/AdsBannerSlider/page";
 import CatSlider from "../../Components/CatSlider/page";
+import ProductItemsPage from "../../Components/ProductItems/page";
 import Slider from "../../Components/Slider/page";
 import { LiaShippingFastSolid } from "react-icons/lia";
 
@@ -8,30 +10,36 @@ export default function Home() {
       <Slider />
       <CatSlider />
 
-      <section className="py-16 bg-white mt-5">
-        <div className="container">
-          <div className="freeShipping w-full p-4 py-4 border-2 border-[#ff5252] flex items-center justify-between rounded-md">
-            <div className="col1 flex items-center gap-4">
-              <LiaShippingFastSolid className="text-[50px]" />
-              <span className="text-[20px] font-[600] uppercase">Free Shipping</span>
+      <section className="py-8 mt-5 lg:py-16 bg-white">
+        <div className="container px-4">
+          <div className="freeShipping w-full border-2 border-[#ff5252] rounded-md p-3 flex flex-wrap items-center justify-between gap-3 lg:p-4">
+            {/* Left: Icon + Title */}
+            <div className="flex items-center gap-2">
+              <LiaShippingFastSolid className="text-[24px] lg:text-[50px]" />
+              <span className="text-[13px] lg:text-[20px] font-semibold uppercase">
+                Free Shipping
+              </span>
             </div>
 
-            <div className="col2 ">
-              <p className="mb-0 font-[500]">Free Delivery Now On Your First Order and over $200</p>
+            {/* Middle: Description */}
+            <div className="text-[12px] lg:text-base font-medium whitespace-nowrap">
+              Free Delivery Now On Your First Order and over $200
             </div>
 
-            <p className="font-bold text-[25px]">- Only $200*</p>
+            {/* Right: Price */}
+            <p className="text-[14px] lg:text-[25px] font-bold whitespace-nowrap">
+              - Only $200*
+            </p>
           </div>
+
+          <AdsBannerSlider items={4} />
+      <ProductItemsPage/>
         </div>
       </section>
 
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
+
+
+      <div className="pb-16 lg:pb-32" />
     </>
   );
 }

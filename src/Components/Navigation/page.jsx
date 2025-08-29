@@ -16,7 +16,22 @@ const Navigation = () => {
   };
   return (
     <>
-      <nav className="py-2">
+      {/* Mobile Category Button - Only visible on mobile */}
+      <div className="mobile-nav py-2 lg:hidden border-b border-gray-200">
+        <div className="container">
+          <Button 
+            className="!text-black gap-2 w-full !justify-start" 
+            onClick={toggleDrawer}
+          >
+            <RiMenu2Fill className="text-[18px]" />
+            {t(`shopByCategory`)}
+            <LiaAngleDownSolid className="text-[13px] ml-auto font-bold" />
+          </Button>
+        </div>
+      </div>
+
+      {/* Desktop Navigation - Hidden on mobile */}
+      <nav className="py-2 hidden lg:block">
         <div className="container flex items-center justify-end gap-8">
           <div className="col_1 w-[20%]">
             <Button className="!text-black gap-2 w-full" onClick={toggleDrawer}>
