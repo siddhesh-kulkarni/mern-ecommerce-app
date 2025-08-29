@@ -1,3 +1,4 @@
+import AdsBannerSlider from "../../Components/AdsBannerSlider/page";
 import CatSlider from "../../Components/CatSlider/page";
 import Slider from "../../Components/Slider/page";
 import { LiaShippingFastSolid } from "react-icons/lia";
@@ -22,6 +23,8 @@ export default function Home() {
 
             <p className="font-bold text-[25px]">- Only $200*</p>
           </div>
+
+          <AdsBannerSlider items={4}/>
         </div>
       </section>
 
