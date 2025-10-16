@@ -1,5 +1,6 @@
 import AdsBannerSlider from "../../Components/AdsBannerSlider/page";
 import CatSlider from "../../Components/CatSlider/page";
+import Footer from "../../Components/Footer/page";
 import ProductItemsPage from "../../Components/ProductItems/page";
 import Slider from "../../Components/Slider/page";
 import { LiaShippingFastSolid } from "react-icons/lia";
@@ -33,13 +34,12 @@ export default function Home() {
           </div>
 
           <AdsBannerSlider items={4} />
-      <ProductItemsPage/>
+          <ProductItemsPage />
         </div>
       </section>
 
-
-
-      <div className="pb-16 lg:pb-32" />
+      <Footer />
+      {/* <div className="pb-16 lg:pb-32" /> */}
     </>
   );
 }
