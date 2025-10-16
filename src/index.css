@@ -20,6 +20,8 @@ body {
   margin: auto;
 }
 
+.btn-org{background: #ff5252 !important; color: #fff !important; font-weight: 500; font-size: 16px; padding: 7px 20px !important;}
+
 /* header .top-strip{} */
 
 .bg-primary {
@@ -100,3 +102,9 @@ nav ul button {
 
 .homeCatSlider .swiper-button-prev:hover, .homeCatSlider .swiper-button-next:hover{background: #ff5252 !important;}
 .homeCatSlider .swiper-button-prev:hover::after, .homeCatSlider .swiper-button-next:hover::after {color: #fff !important;}
+
+footer form input::placeholder{font-size: 14px;}
+
+.css-vuhw6e-MuiButtonBase-root-MuiSwitchBase-root-MuiCheckbox-root.Mui-checked, .css-vuhw6e-MuiButtonBase-root-MuiSwitchBase-root-MuiCheckbox-root.MuiCheckbox-indeterminate{color: #ff5252 !important;}
+
+.MuiFormControlLabel-label{font-size: 13px !important; color: rgba(0, 0, 0, 0.8); }
