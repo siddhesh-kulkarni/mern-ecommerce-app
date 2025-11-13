@@ -11,7 +11,7 @@ import { Tooltip } from "@mui/material";
 import { changeLanguage } from "../../i18n";
 import Navigation from "../Navigation/page";
 
-const Header = () => {
+const Header = ({ onOpenCart }) => {
   const { t, i18n } = useTranslation();
 
   const handleLanguageChange = (e) => {
@@ -79,7 +79,7 @@ const Header = () => {
 
             <div className="flex items-center gap-1">
               <Tooltip title={t("Login")}>
-                <Link to={"/login"}>
+                <Link to={"/"}>
                   <IconButton aria-label="user" size="small">
                     <FaRegUser className="text-[16px]" />
                   </IconButton>
@@ -87,7 +87,7 @@ const Header = () => {
               </Tooltip>
 
               <Tooltip title={t("Compare")}>
-                <Badge badgeContent={3} color="primary">
+                <Badge badgeContent={3} color="bg-primary text-white">
                   <IconButton aria-label="compare" size="small">
                     <IoIosGitCompare className="text-[16px]" />
                   </IconButton>
@@ -95,15 +95,15 @@ const Header = () => {
               </Tooltip>
 
               <Tooltip title={t("Cart")}>
-                <Badge badgeContent={3} color="primary">
-                  <IconButton aria-label="cart" size="small">
+                <Badge badgeContent={3} color="bg-primary text-white">
+                  <IconButton aria-label="cart" size="small" onClick={() => onOpenCart && onOpenCart()}>
                     <MdOutlineShoppingCart className="text-[16px]" />
                   </IconButton>
                 </Badge>
               </Tooltip>
 
               <Tooltip title={t("Wishlist")}>
-                <Badge badgeContent={3} color="primary">
+                <Badge badgeContent={3} color="bg-primary text-white">
                   <IconButton aria-label="wishlist" size="small">
                     <FaRegHeart className="text-[16px]" />
                   </IconButton>
@@ -144,7 +144,7 @@ const Header = () => {
 
                 <li>
                   <Tooltip title={t("Compare")}>
-                    <Badge badgeContent={3} color="primary">
+                    <Badge badgeContent={3} color="!bg-primary text-white">
                       <IconButton aria-label="compare">
                         <IoIosGitCompare />
                       </IconButton>
@@ -154,8 +154,8 @@ const Header = () => {
 
                 <li>
                   <Tooltip title={t("Cart")}>
-                    <Badge badgeContent={3} color="primary">
-                      <IconButton aria-label="cart">
+                    <Badge badgeContent={3} color="bg-primary text-white">
+                      <IconButton aria-label="cart" onClick={() => onOpenCart && onOpenCart()}>
                         <MdOutlineShoppingCart />
                       </IconButton>
                     </Badge>
@@ -164,7 +164,7 @@ const Header = () => {
 
                 <li>
                   <Tooltip title={t("Wishlist")}>
-                    <Badge badgeContent={3} color="primary">
+                    <Badge badgeContent={3} color="bg-primary text-white">
                       <IconButton aria-label="wishlist">
                         <FaRegHeart />
                       </IconButton>

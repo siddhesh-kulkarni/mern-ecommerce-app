@@ -21,11 +21,11 @@ This is the **frontend of a modern e-commerce app**, built using **React + Vite*
 To create a similar project using Vite:
 
 ```bash
-# 1. Scaffold the project
-npm create vite@latest mern-ecommerce -- --template react
+# 1. Clone repository
+git clone https://github.com/siddhesh-kulkarni/mern-ecommerce-app.git
 
 # 2. Move into the project directory
-cd mern-ecommerce
+cd mern-ecommerce-webapp
 
 # 3. Install dependencies
 npm install
@@ -57,7 +57,7 @@ mern-ecommerce-app/
 ### 📁 Folder Highlights
 
 - `public/images/` – For static assets like banners, hero images, and logos that don’t change often.
-- `public/locales/` – Contains language JSON files for internationalization (e.g., `en.json`, `mr.json`). Useful with libraries like `i18next`.
+- `public/locales/` – Contains language JSON files for internationalization (e.g., `translation.json`). Useful with libraries like `i18next`.
 
 ---
 
