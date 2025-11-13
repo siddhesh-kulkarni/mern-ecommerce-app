@@ -2,10 +2,12 @@ import React from "react";
 import { FaStar, FaRegStar } from "react-icons/fa";
 import { MdOutlineShoppingCart } from "react-icons/md";
 import { FaRegHeart } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const products = [
   {
     id: 11,
+    slug: "multicolored-open-knit-crewneck-11",
     name: "Multicolored Open-Knit Crewneck",
     brand: "Gadget Zone",
     price: "$79.00",
@@ -18,6 +20,7 @@ const products = [
   },
   {
     id: 12,
+    slug: "multicolored-open-knit-crewneck-12",
     name: "Multicolored Open-Knit Crewneck",
     brand: "Gadget Zone",
     price: "$79.00",
@@ -29,7 +32,8 @@ const products = [
     link: "https://demos.codezeel.com/prestashop/PRS21/PRS210502/en/footwear/11-259-hummingbird-cushion.html#/1-size-small/11-color-black",
   },
   {
-    id: 12,
+    id: 13,
+    slug: "multicolored-open-knit-crewneck-13",
     name: "Multicolored Open-Knit Crewneck",
     brand: "Gadget Zone",
     price: "$79.00",
@@ -41,7 +45,8 @@ const products = [
     link: "https://demos.codezeel.com/prestashop/PRS21/PRS210502/en/footwear/11-259-hummingbird-cushion.html#/1-size-small/11-color-black",
   },
   {
-    id: 12,
+    id: 14,
+    slug: "multicolored-open-knit-crewneck-14",
     name: "Multicolored Open-Knit Crewneck",
     brand: "Gadget Zone",
     price: "$79.00",
@@ -53,7 +58,8 @@ const products = [
     link: "https://demos.codezeel.com/prestashop/PRS21/PRS210502/en/footwear/11-259-hummingbird-cushion.html#/1-size-small/11-color-black",
   },
   {
-    id: 12,
+    id: 15,
+    slug: "multicolored-open-knit-crewneck-15",
     name: "Multicolored Open-Knit Crewneck",
     brand: "Gadget Zone",
     price: "$79.00",
@@ -65,7 +71,8 @@ const products = [
     link: "https://demos.codezeel.com/prestashop/PRS21/PRS210502/en/footwear/11-259-hummingbird-cushion.html#/1-size-small/11-color-black",
   },
   {
-    id: 12,
+    id: 16,
+    slug: "multicolored-open-knit-crewneck-16",
     name: "Multicolored Open-Knit Crewneck",
     brand: "Gadget Zone",
     price: "$79.00",
@@ -77,7 +84,8 @@ const products = [
     link: "https://demos.codezeel.com/prestashop/PRS21/PRS210502/en/footwear/11-259-hummingbird-cushion.html#/1-size-small/11-color-black",
   },
   {
-    id: 12,
+    id: 17,
+    slug: "multicolored-open-knit-crewneck-17",
     name: "Multicolored Open-Knit Crewneck",
     brand: "Gadget Zone",
     price: "$79.00",
@@ -94,11 +102,16 @@ const products = [
 const ProductItemsPage = () => {
   return (
     <section className="py-6 px-2 lg:px-0">
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
+      <h1 className="text-center font-bold text-black text-2xl mb-4">
+        Popular Products
+      </h1>
+
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
         {products.map((product) => (
-          <div
+          <Link
             key={product.id}
-            className="group relative overflow-hidden border border-gray-100 hover:shadow-md transition-shadow duration-300 ease-in-out"
+            to={`/product/${product.slug}`} // ✅ Navigate to Product Details (use slug)
+            className="group relative overflow-hidden border border-gray-100 hover:shadow-md transition-shadow duration-300 ease-in-out block"
           >
             {/* Image container */}
             <div className="relative overflow-hidden">
@@ -120,15 +133,13 @@ const ProductItemsPage = () => {
                 className="w-full absolute top-0 left-0 transition-opacity duration-500 ease-in-out opacity-0 group-hover:opacity-100"
               />
 
-              {/* Hover buttons - show on hover (all screen sizes) */}
+              {/* Hover buttons */}
               <div className="flex flex-col gap-2 absolute top-2 right-2 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">
                 {[FaRegHeart, MdOutlineShoppingCart].map((Icon, i) => (
                   <button
                     key={i}
                     className="bg-white p-2 rounded-full shadow text-gray-700 hover:text-red-500 hover:scale-110 transition-transform duration-300 ease-in-out"
-                    style={{
-                      transitionProperty: "color, transform",
-                    }}
+                    onClick={(e) => e.preventDefault()} // prevent link click
                   >
                     <Icon size={16} />
                   </button>
@@ -144,23 +155,23 @@ const ProductItemsPage = () => {
               {/* Rating stars */}
               <div className="flex justify-center mt-1 space-x-1 text-yellow-400">
                 {[...Array(5)].map((_, i) =>
-                  i < product.rating ? (
-                    <FaStar key={i} />
-                  ) : (
-                    <FaRegStar key={i} />
-                  )
+                  i < product.rating ? <FaStar key={i} /> : <FaRegStar key={i} />
                 )}
               </div>
 
               {/* Prices */}
               <div className="mt-2 flex justify-center items-center gap-2">
-                <span className="text-base font-bold text-[#333]">{product.price}</span>
+                <span className="text-base font-bold text-[#333]">
+                  {product.price}
+                </span>
                 {product.originalPrice && (
-                  <span className="text-sm text-gray-400 line-through">{product.originalPrice}</span>
+                  <span className="text-sm text-gray-400 line-through">
+                    {product.originalPrice}
+                  </span>
                 )}
               </div>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </section>

@@ -38,7 +38,7 @@ export default function Home() {
         </div>
       </section>
 
-      <Footer />
+      <Footer/>
       {/* <div className="pb-16 lg:pb-32" /> */}
     </>
   );
