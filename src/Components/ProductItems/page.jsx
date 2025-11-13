@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 const products = [
   {
     id: 11,
+    slug: "multicolored-open-knit-crewneck-11",
     name: "Multicolored Open-Knit Crewneck",
     brand: "Gadget Zone",
     price: "$79.00",
@@ -19,6 +20,7 @@ const products = [
   },
   {
     id: 12,
+    slug: "multicolored-open-knit-crewneck-12",
     name: "Multicolored Open-Knit Crewneck",
     brand: "Gadget Zone",
     price: "$79.00",
@@ -31,6 +33,7 @@ const products = [
   },
   {
     id: 13,
+    slug: "multicolored-open-knit-crewneck-13",
     name: "Multicolored Open-Knit Crewneck",
     brand: "Gadget Zone",
     price: "$79.00",
@@ -43,6 +46,7 @@ const products = [
   },
   {
     id: 14,
+    slug: "multicolored-open-knit-crewneck-14",
     name: "Multicolored Open-Knit Crewneck",
     brand: "Gadget Zone",
     price: "$79.00",
@@ -55,6 +59,7 @@ const products = [
   },
   {
     id: 15,
+    slug: "multicolored-open-knit-crewneck-15",
     name: "Multicolored Open-Knit Crewneck",
     brand: "Gadget Zone",
     price: "$79.00",
@@ -67,6 +72,7 @@ const products = [
   },
   {
     id: 16,
+    slug: "multicolored-open-knit-crewneck-16",
     name: "Multicolored Open-Knit Crewneck",
     brand: "Gadget Zone",
     price: "$79.00",
@@ -79,6 +85,7 @@ const products = [
   },
   {
     id: 17,
+    slug: "multicolored-open-knit-crewneck-17",
     name: "Multicolored Open-Knit Crewneck",
     brand: "Gadget Zone",
     price: "$79.00",
@@ -103,7 +110,7 @@ const ProductItemsPage = () => {
         {products.map((product) => (
           <Link
             key={product.id}
-            to={`/productDetails/${product.id}`} // ✅ Navigate to Product Details
+            to={`/product/${product.slug}`} // ✅ Navigate to Product Details (use slug)
             className="group relative overflow-hidden border border-gray-100 hover:shadow-md transition-shadow duration-300 ease-in-out block"
           >
             {/* Image container */}
