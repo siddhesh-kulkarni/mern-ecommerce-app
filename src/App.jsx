@@ -5,7 +5,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./Pages/Home/page";
 import { useTranslation } from "react-i18next";
 import PageLoader from "./Components/PageLoader/page"; 
-import LoginForm from "./Pages/Home/LoginForm/page";
+import { ProductDetails } from "./Pages/ProductDetails/page";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -47,7 +47,7 @@ function App() {
         <Header />
         <Routes>
           <Route path={'/'} exact={true} element={<Home />} />
-          <Route path={'/login'} exact={true} element={<LoginForm />} />
+          <Route path={'/productDetails/:id'} exact={true} element={<ProductDetails />} />
         </Routes>
       </BrowserRouter>
     </>

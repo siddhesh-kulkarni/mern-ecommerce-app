@@ -79,7 +79,7 @@ const Header = () => {
 
             <div className="flex items-center gap-1">
               <Tooltip title={t("Login")}>
-                <Link to={"/login"}>
+                <Link to={"/"}>
                   <IconButton aria-label="user" size="small">
                     <FaRegUser className="text-[16px]" />
                   </IconButton>
