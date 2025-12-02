@@ -8,8 +8,13 @@ import Login from "./Pages/Login/page";
 import Register from "./Pages/Register/page";
 import Cart from "./Pages/Cart/page";
 import { useTranslation } from "react-i18next";
-import PageLoader from "./Components/PageLoader/page"; 
-// import { ProductDetails } from "./Pages/ProductDetails/page";
+import PageLoader from "./Components/PageLoader/page";
+import AdminLogin from "./Pages/Admin/AdminLogin/page";
+import Dashboard from "./Pages/Admin/Dashboard/page";
+import Products from "./Pages/Admin/Products/page";
+import Orders from "./Pages/Admin/Orders/page";
+import Coupons from "./Pages/Admin/Coupons/page";
+import Customers from "./Pages/Admin/Customers/page";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -49,16 +54,27 @@ function App() {
     <>
       <PageLoader isLoading={isLoading} />
       <BrowserRouter>
-        <Header onOpenCart={() => setCartOpen(true)} />
-        <Cart isOpen={cartOpen} onClose={() => setCartOpen(false)} />
         <Routes>
-          <Route path={'/'} exact={true} element={<Home />} />
-          <Route path={'/product'} exact={true} element={<ProductPage />} />
-          <Route path={'/product/:slug'} exact={true} element={<ProductPage />} />
-          <Route path={'/login'} exact={true} element={<Login />} />
-          <Route path={'/register'} exact={true} element={<Register />} />
-          {/* Cart is opened via header toggle; removed route-based cart rendering */}
-          {/* <Route path={'/productDetails/:id'} exact={true} element={<ProductDetails />} /> */}
+          <Route path={'/admin/login'} element={<AdminLogin />} />
+          <Route path={'/admin/dashboard'} element={<Dashboard />} />
+          <Route path={'/admin/products'} element={<Products />} />
+          <Route path={'/admin/orders'} element={<Orders />} />
+          <Route path={'/admin/coupons'} element={<Coupons />} />
+          <Route path={'/admin/customers'} element={<Customers />} />
+
+          <Route path="*" element={
+            <>
+              <Header onOpenCart={() => setCartOpen(true)} />
+              <Cart isOpen={cartOpen} onClose={() => setCartOpen(false)} />
+              <Routes>
+                <Route path={'/'} element={<Home />} />
+                <Route path={'/product'} element={<ProductPage />} />
+                <Route path={'/product/:slug'} element={<ProductPage />} />
+                <Route path={'/login'} element={<Login />} />
+                <Route path={'/register'} element={<Register />} />
+              </Routes>
+            </>
+          } />
         </Routes>
       </BrowserRouter>
     </>
