@@ -1,13 +1,16 @@
 import React from 'react'
 import AdminLayout from '../../../Components/Admin/AdminLayout/page'
+import { useNavigate } from 'react-router-dom'
 
 const Dashboard = () => {
+  const navigate = useNavigate()
   const stats = [
     {
       name: 'Total Revenue',
       value: '$45,231',
       change: '+12.5%',
       trend: 'up',
+      path: '/admin/orders',
       icon: (
         <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -19,6 +22,7 @@ const Dashboard = () => {
       value: '1,234',
       change: '+8.2%',
       trend: 'up',
+      path: '/admin/orders',
       icon: (
         <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
@@ -30,6 +34,7 @@ const Dashboard = () => {
       value: '567',
       change: '+3.1%',
       trend: 'up',
+      path: '/admin/products',
       icon: (
         <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
@@ -41,6 +46,7 @@ const Dashboard = () => {
       value: '892',
       change: '+5.7%',
       trend: 'up',
+      path: '/admin/customers',
       icon: (
         <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
@@ -100,7 +106,14 @@ const Dashboard = () => {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
           {stats.map((stat) => (
-            <div key={stat.name} className="bg-white rounded-xl shadow-sm border border-gray-200 p-6 hover:shadow-md transition">
+            <div
+              key={stat.name}
+              onClick={() => stat.path && navigate(stat.path)}
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => e.key === 'Enter' && stat.path && navigate(stat.path)}
+              className="bg-white rounded-xl shadow-sm border border-gray-200 p-6 hover:shadow-md hover:-translate-y-1 transition cursor-pointer"
+            >
               <div className="flex items-center justify-between mb-4">
                 <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center text-primary">
                   {stat.icon}
@@ -164,7 +177,12 @@ const Dashboard = () => {
           <div className="p-6 border-b border-gray-200">
             <div className="flex items-center justify-between">
               <h2 className="text-lg font-bold text-gray-900">Recent Orders</h2>
-              <button className="text-sm text-primary font-semibold hover:underline">View All</button>
+              <button
+                onClick={() => navigate('/admin/orders')}
+                className="text-sm text-primary font-semibold hover:underline cursor-pointer"
+              >
+                View All
+              </button>
             </div>
           </div>
           <div className="overflow-x-auto">

@@ -1,9 +1,15 @@
 import React, { useState } from 'react'
 import AdminLayout from '../../../Components/Admin/AdminLayout/page'
+import AddCoupon from './AddCoupon'
+import EditCoupon from './EditCoupon'
+import DeleteCoupon from './DeleteCoupon'
 
 const Coupons = () => {
   const [searchQuery, setSearchQuery] = useState('')
   const [showAddModal, setShowAddModal] = useState(false)
+  const [showEditModal, setShowEditModal] = useState(false)
+  const [showDeleteModal, setShowDeleteModal] = useState(false)
+  const [selectedCoupon, setSelectedCoupon] = useState(null)
 
   const coupons = [
     {
@@ -84,6 +90,16 @@ const Coupons = () => {
       default:
         return 'bg-gray-100 text-gray-800'
     }
+  }
+
+  const handleDeleteCoupon = (coupon) => {
+    console.log('Deleting coupon:', coupon)
+
+    // Later: API call here
+    // setCoupons(prev => prev.filter(c => c.id !== coupon.id))
+
+    setShowDeleteModal(false)
+    setSelectedCoupon(null)
   }
 
   return (
@@ -178,14 +194,38 @@ const Coupons = () => {
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm">
                       <div className="flex items-center gap-2">
-                        <button className="p-2 hover:bg-gray-100 rounded-lg transition" title="Edit">
+                        <button
+                          className="p-2 hover:bg-gray-100 rounded-lg transition"
+                          title="Edit"
+                          onClick={() => {
+                            setSelectedCoupon(coupon)
+                            setShowEditModal(true)
+                          }}
+                        >
                           <svg className="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={2}
+                              d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
+                            />
                           </svg>
                         </button>
-                        <button className="p-2 hover:bg-gray-100 rounded-lg transition" title="Delete">
+                        <button
+                          className="p-2 hover:bg-gray-100 rounded-lg transition"
+                          title="Delete"
+                          onClick={() => {
+                            setSelectedCoupon(coupon)
+                            setShowDeleteModal(true)
+                          }}
+                        >
                           <svg className="w-4 h-4 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={2}
+                              d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
+                            />
                           </svg>
                         </button>
                       </div>
@@ -211,81 +251,9 @@ const Coupons = () => {
         </div>
       </div>
 
-      {showAddModal && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
-          <div className="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
-            <div className="p-6 border-b border-gray-200 flex items-center justify-between sticky top-0 bg-white">
-              <h2 className="text-xl font-bold text-gray-900">Add New Coupon</h2>
-              <button onClick={() => setShowAddModal(false)} className="p-2 hover:bg-gray-100 rounded-lg">
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              </button>
-            </div>
-            <form className="p-6 space-y-4">
-              <div>
-                <label className="block text-sm font-semibold text-gray-900 mb-2">Coupon Code</label>
-                <input type="text" placeholder="SUMMER25" className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary uppercase" />
-              </div>
-
-              <div>
-                <label className="block text-sm font-semibold text-gray-900 mb-2">Description</label>
-                <input type="text" placeholder="Brief description of coupon" className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" />
-              </div>
-
-              <div className="grid grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-sm font-semibold text-gray-900 mb-2">Discount Type</label>
-                  <select className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
-                    <option value="percentage">Percentage</option>
-                    <option value="fixed">Fixed Amount</option>
-                  </select>
-                </div>
-                <div>
-                  <label className="block text-sm font-semibold text-gray-900 mb-2">Discount Value</label>
-                  <input type="number" placeholder="10" className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" />
-                </div>
-              </div>
-
-              <div className="grid grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-sm font-semibold text-gray-900 mb-2">Minimum Purchase</label>
-                  <input type="number" placeholder="50.00" className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" />
-                </div>
-                <div>
-                  <label className="block text-sm font-semibold text-gray-900 mb-2">Usage Limit</label>
-                  <input type="number" placeholder="100" className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" />
-                </div>
-              </div>
-
-              <div className="grid grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-sm font-semibold text-gray-900 mb-2">Valid From</label>
-                  <input type="date" className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" />
-                </div>
-                <div>
-                  <label className="block text-sm font-semibold text-gray-900 mb-2">Valid Until</label>
-                  <input type="date" className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" />
-                </div>
-              </div>
-
-              <div className="flex items-center gap-2 pt-2">
-                <input type="checkbox" id="active" className="w-4 h-4 rounded" defaultChecked />
-                <label htmlFor="active" className="text-sm text-gray-700">Active coupon immediately</label>
-              </div>
-
-              <div className="flex gap-3 pt-4">
-                <button type="button" onClick={() => setShowAddModal(false)} className="flex-1 px-6 py-2.5 border border-gray-300 rounded-lg font-semibold hover:bg-gray-50 transition">
-                  Cancel
-                </button>
-                <button type="submit" className="flex-1 px-6 py-2.5 bg-primary text-white rounded-lg font-semibold hover:opacity-95 transition">
-                  Create Coupon
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
-      )}
+      <AddCoupon isOpen={showAddModal} onClose={() => setShowAddModal(false)} />
+      <EditCoupon isOpen={showEditModal} onClose={() => setShowEditModal(false)} coupon={selectedCoupon} />
+      <DeleteCoupon isOpen={showDeleteModal} onClose={() => setShowDeleteModal(false)} coupon={selectedCoupon} onConfirm={handleDeleteCoupon} />
     </AdminLayout>
   )
 }
