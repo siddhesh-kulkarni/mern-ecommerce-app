@@ -15,6 +15,10 @@ import Products from "./Pages/Admin/Products/page";
 import Orders from "./Pages/Admin/Orders/page";
 import Coupons from "./Pages/Admin/Coupons/page";
 import Customers from "./Pages/Admin/Customers/page";
+import Categories from "./Pages/Admin/Categories/page";
+import Discounts from "./Pages/Admin/Discounts/page";
+import Banners from "./Pages/Admin/Banners/page";
+import Logo from "./Pages/Admin/Logo/page";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -58,9 +62,13 @@ function App() {
           <Route path={'/admin/login'} element={<AdminLogin />} />
           <Route path={'/admin/dashboard'} element={<Dashboard />} />
           <Route path={'/admin/products'} element={<Products />} />
+          <Route path={'/admin/categories'} element={<Categories />} />
+          <Route path={'/admin/discounts'} element={<Discounts />} />
           <Route path={'/admin/orders'} element={<Orders />} />
           <Route path={'/admin/coupons'} element={<Coupons />} />
           <Route path={'/admin/customers'} element={<Customers />} />
+          <Route path={'/admin/banners'} element={<Banners />} />
+          <Route path={'/admin/logo'} element={<Logo />} />
 
           <Route path="*" element={
             <>
