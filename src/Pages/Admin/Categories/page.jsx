@@ -1,8 +1,7 @@
 import React, { useState } from 'react'
 import AdminLayout from '../../../Components/Admin/AdminLayout/page'
-import EditCategory from './EditCategory'
+import CategoryForm from './CategoryForm'
 import DeleteCategory from './DeleteCategory'
-import AddCategory from './AddCategory'
 
 const Categories = () => {
     const [searchQuery, setSearchQuery] = useState('')
@@ -226,14 +225,17 @@ const Categories = () => {
                 </div>
             </div>
 
-            <AddCategory
+            <CategoryForm
                 isOpen={showAddModal}
                 onClose={() => setShowAddModal(false)}
+                mode="add"
             />
-            <EditCategory
+
+            <CategoryForm
                 isOpen={showEditModal}
                 onClose={() => setShowEditModal(false)}
                 category={selectedCategory}
+                mode="edit"
             />
             <DeleteCategory
                 isOpen={showDeleteModal}

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 
-const EditProduct = ({ isOpen, onClose, product }) => {
+const ProductForm = ({ isOpen, onClose, product, mode = "add" }) => {
   const [formData, setFormData] = useState({
     name: '',
     sku: '',
@@ -13,7 +13,7 @@ const EditProduct = ({ isOpen, onClose, product }) => {
   })
 
   useEffect(() => {
-    if (product) {
+    if (mode === "edit" && product) {
       setFormData({
         name: product.name || '',
         sku: product.sku || '',
@@ -25,7 +25,20 @@ const EditProduct = ({ isOpen, onClose, product }) => {
         status: product.status || 'active',
       })
     }
-  }, [product])
+
+    if (mode === "add") {
+      setFormData({
+        name: '',
+        sku: '',
+        category: '',
+        price: '',
+        comparePrice: '',
+        stock: '',
+        description: '',
+        status: 'active',
+      })
+    }
+  }, [product, mode])
 
   if (!isOpen) return null
 
@@ -36,7 +49,13 @@ const EditProduct = ({ isOpen, onClose, product }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log('Updated Product:', formData)
+
+    if (mode === "add") {
+      console.log("Adding Product:", formData)
+    } else {
+      console.log("Updating Product:", formData)
+    }
+
     onClose()
   }
 
@@ -45,11 +64,10 @@ const EditProduct = ({ isOpen, onClose, product }) => {
       <div className="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
         {/* Header */}
         <div className="p-6 border-b border-gray-200 flex items-center justify-between sticky top-0 bg-white">
-          <h2 className="text-xl font-bold text-gray-900">Edit Product</h2>
-          <button
-            onClick={onClose}
-            className="p-2 hover:bg-gray-100 rounded-lg"
-          >
+          <h2 className="text-xl font-bold text-gray-900">
+            {mode === "add" ? "Add New Product" : "Edit Product"}
+          </h2>
+          <button onClick={onClose} className="p-2 hover:bg-gray-100 rounded-lg">
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
             </svg>
@@ -65,6 +83,7 @@ const EditProduct = ({ isOpen, onClose, product }) => {
               name="name"
               value={formData.name}
               onChange={handleChange}
+              placeholder="e.g. Cotton T-Shirt"
               className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary"
             />
           </div>
@@ -77,6 +96,7 @@ const EditProduct = ({ isOpen, onClose, product }) => {
                 name="sku"
                 value={formData.sku}
                 onChange={handleChange}
+                placeholder="e.g. PRD-001"
                 className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary"
               />
             </div>
@@ -105,6 +125,7 @@ const EditProduct = ({ isOpen, onClose, product }) => {
                 name="price"
                 value={formData.price}
                 onChange={handleChange}
+                placeholder="e.g. 499"
                 className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary"
               />
             </div>
@@ -116,6 +137,7 @@ const EditProduct = ({ isOpen, onClose, product }) => {
                 name="comparePrice"
                 value={formData.comparePrice}
                 onChange={handleChange}
+                placeholder="e.g. 599"
                 className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary"
               />
             </div>
@@ -127,6 +149,7 @@ const EditProduct = ({ isOpen, onClose, product }) => {
                 name="stock"
                 value={formData.stock}
                 onChange={handleChange}
+                placeholder="e.g. 100"
                 className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary"
               />
             </div>
@@ -139,6 +162,7 @@ const EditProduct = ({ isOpen, onClose, product }) => {
               name="description"
               value={formData.description}
               onChange={handleChange}
+              placeholder="Enter product description..."
               className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary"
             />
           </div>
@@ -169,7 +193,7 @@ const EditProduct = ({ isOpen, onClose, product }) => {
               type="submit"
               className="flex-1 px-6 py-2.5 bg-primary text-white rounded-lg font-semibold hover:opacity-95"
             >
-              Update Product
+              {mode === "add" ? "Add Product" : "Update Product"}
             </button>
           </div>
         </form>
@@ -178,4 +202,4 @@ const EditProduct = ({ isOpen, onClose, product }) => {
   )
 }
 
-export default EditProduct
+export default ProductForm

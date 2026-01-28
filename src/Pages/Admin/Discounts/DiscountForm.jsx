@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 
-const EditDiscount = ({ isOpen, onClose, discount }) => {
+const DiscountForm = ({ isOpen, onClose, discount, mode = "add" }) => {
   const [formData, setFormData] = useState({
     name: '',
     category: '',
@@ -10,7 +10,7 @@ const EditDiscount = ({ isOpen, onClose, discount }) => {
   })
 
   useEffect(() => {
-    if (discount) {
+    if (mode === "edit" && discount) {
       setFormData({
         name: discount.name || '',
         category: discount.category || '',
@@ -19,7 +19,17 @@ const EditDiscount = ({ isOpen, onClose, discount }) => {
         status: discount.status || 'active',
       })
     }
-  }, [discount])
+
+    if (mode === "add") {
+      setFormData({
+        name: '',
+        category: '',
+        type: 'percentage',
+        value: '',
+        status: 'active',
+      })
+    }
+  }, [discount, mode])
 
   if (!isOpen) return null
 
@@ -30,7 +40,11 @@ const EditDiscount = ({ isOpen, onClose, discount }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log('Updated Discount:', formData)
+    if (mode === "add") {
+      console.log("Adding Discount:", formData)
+    } else {
+      console.log("Updating Discount:", formData)
+    }
     onClose()
   }
 
@@ -39,11 +53,10 @@ const EditDiscount = ({ isOpen, onClose, discount }) => {
       <div className="bg-white rounded-2xl max-w-xl w-full">
         {/* Header */}
         <div className="p-6 border-b border-gray-200 flex items-center justify-between">
-          <h2 className="text-xl font-bold text-gray-900">Edit Discount</h2>
-          <button
-            onClick={onClose}
-            className="p-2 hover:bg-gray-100 rounded-lg"
-          >
+          <h2 className="text-xl font-bold text-gray-900">
+            {mode === "add" ? "Add Discount" : "Edit Discount"}
+          </h2>
+          <button onClick={onClose} className="p-2 hover:bg-gray-100 rounded-lg">
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
             </svg>
@@ -53,22 +66,19 @@ const EditDiscount = ({ isOpen, onClose, discount }) => {
         {/* Form */}
         <form onSubmit={handleSubmit} className="p-6 space-y-4">
           <div>
-            <label className="block text-sm font-semibold text-gray-900 mb-2">
-              Discount Name
-            </label>
+            <label className="block text-sm font-semibold mb-2">Discount Name</label>
             <input
               type="text"
               name="name"
               value={formData.name}
               onChange={handleChange}
+              placeholder="e.g. Summer Sale"
               className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary"
             />
           </div>
 
           <div>
-            <label className="block text-sm font-semibold text-gray-900 mb-2">
-              Category
-            </label>
+            <label className="block text-sm font-semibold mb-2">Category</label>
             <select
               name="category"
               value={formData.category}
@@ -84,9 +94,7 @@ const EditDiscount = ({ isOpen, onClose, discount }) => {
 
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-semibold text-gray-900 mb-2">
-                Discount Type
-              </label>
+              <label className="block text-sm font-semibold mb-2">Discount Type</label>
               <select
                 name="type"
                 value={formData.type}
@@ -99,23 +107,20 @@ const EditDiscount = ({ isOpen, onClose, discount }) => {
             </div>
 
             <div>
-              <label className="block text-sm font-semibold text-gray-900 mb-2">
-                Value
-              </label>
+              <label className="block text-sm font-semibold mb-2">Value</label>
               <input
                 type="number"
                 name="value"
                 value={formData.value}
                 onChange={handleChange}
+                placeholder="e.g. 10 or 500"
                 className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary"
               />
             </div>
           </div>
 
           <div>
-            <label className="block text-sm font-semibold text-gray-900 mb-2">
-              Status
-            </label>
+            <label className="block text-sm font-semibold mb-2">Status</label>
             <select
               name="status"
               value={formData.status}
@@ -127,7 +132,6 @@ const EditDiscount = ({ isOpen, onClose, discount }) => {
             </select>
           </div>
 
-          {/* Actions */}
           <div className="flex gap-3 pt-4">
             <button
               type="button"
@@ -140,7 +144,7 @@ const EditDiscount = ({ isOpen, onClose, discount }) => {
               type="submit"
               className="flex-1 px-6 py-2.5 bg-primary text-white rounded-lg font-semibold hover:opacity-95"
             >
-              Update Discount
+              {mode === "add" ? "Add Discount" : "Update Discount"}
             </button>
           </div>
         </form>
@@ -149,4 +153,4 @@ const EditDiscount = ({ isOpen, onClose, discount }) => {
   )
 }
 
-export default EditDiscount
+export default DiscountForm

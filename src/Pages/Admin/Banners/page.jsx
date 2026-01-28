@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import AdminLayout from '../../../Components/Admin/AdminLayout/page'
-import AddBanner from './AddBanner'
-import EditBanner from './EditBanner'
+import BannerForm from './BannerForm'
 import DeleteBanner from './DeleteBanner'
 
 const Banners = () => {
@@ -138,9 +137,23 @@ const Banners = () => {
         </div>
       </div>
 
-      <AddBanner isOpen={showAddModal} onClose={() => setShowAddModal(false)} />
-      <EditBanner isOpen={showEditModal} onClose={() => setShowEditModal(false)} banner={selectedBanner} />
-      <DeleteBanner isOpen={showDeleteModal} onClose={() => setShowDeleteModal(false)} banner={selectedBanner} onConfirm={handleDeleteBanner} />
+      <BannerForm
+        isOpen={showAddModal}
+        onClose={() => setShowAddModal(false)}
+        mode="add"
+      />
+
+      <BannerForm
+        isOpen={showEditModal}
+        onClose={() => setShowEditModal(false)}
+        banner={selectedBanner}
+        mode="edit"
+      />
+      <DeleteBanner
+        isOpen={showDeleteModal}
+        onClose={() => setShowDeleteModal(false)}
+        banner={selectedBanner}
+        onConfirm={handleDeleteBanner} />
     </AdminLayout>
   )
 }
