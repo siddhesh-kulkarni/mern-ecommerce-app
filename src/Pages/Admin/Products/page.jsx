@@ -1,8 +1,7 @@
 import React, { useState } from 'react'
 import AdminLayout from '../../../Components/Admin/AdminLayout/page'
-import EditProduct from './EditProduct'
+import ProductForm from './ProductForm'
 import DeleteProduct from './DeleteProduct'
-import AddProduct from './AddProduct'
 
 const Products = () => {
   const [searchQuery, setSearchQuery] = useState('')
@@ -227,14 +226,17 @@ const Products = () => {
         </div>
       </div>
 
-      <AddProduct
+      <ProductForm
         isOpen={showAddModal}
         onClose={() => setShowAddModal(false)}
+        mode="add"
       />
-      <EditProduct
+
+      <ProductForm
         isOpen={showEditModal}
         onClose={() => setShowEditModal(false)}
         product={selectedProduct}
+        mode="edit"
       />
       <DeleteProduct
         isOpen={showDeleteModal}
