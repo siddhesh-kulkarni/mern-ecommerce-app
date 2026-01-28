@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import AdminLayout from '../../../Components/Admin/AdminLayout/page'
-import AddCoupon from './AddCoupon'
-import EditCoupon from './EditCoupon'
+import CouponForm from './CouponForm'
 import DeleteCoupon from './DeleteCoupon'
 
 const Coupons = () => {
@@ -251,9 +250,23 @@ const Coupons = () => {
         </div>
       </div>
 
-      <AddCoupon isOpen={showAddModal} onClose={() => setShowAddModal(false)} />
-      <EditCoupon isOpen={showEditModal} onClose={() => setShowEditModal(false)} coupon={selectedCoupon} />
-      <DeleteCoupon isOpen={showDeleteModal} onClose={() => setShowDeleteModal(false)} coupon={selectedCoupon} onConfirm={handleDeleteCoupon} />
+      <CouponForm
+        isOpen={showAddModal}
+        onClose={() => setShowAddModal(false)}
+        mode="add"
+      />
+
+      <CouponForm
+        isOpen={showEditModal}
+        onClose={() => setShowEditModal(false)}
+        coupon={selectedCoupon}
+        mode="edit"
+      />
+      <DeleteCoupon
+        isOpen={showDeleteModal}
+        onClose={() => setShowDeleteModal(false)}
+        coupon={selectedCoupon}
+        onConfirm={handleDeleteCoupon} />
     </AdminLayout>
   )
 }

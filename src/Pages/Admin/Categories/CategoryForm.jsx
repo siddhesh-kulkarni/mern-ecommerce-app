@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 
-const EditCategory = ({ isOpen, onClose, category }) => {
+const CategoryForm = ({ isOpen, onClose, category, mode = "add" }) => {
   const [formData, setFormData] = useState({
     name: '',
     slug: '',
@@ -9,7 +9,7 @@ const EditCategory = ({ isOpen, onClose, category }) => {
   })
 
   useEffect(() => {
-    if (category) {
+    if (mode === "edit" && category) {
       setFormData({
         name: category.name || '',
         slug: category.slug || '',
@@ -17,7 +17,16 @@ const EditCategory = ({ isOpen, onClose, category }) => {
         status: category.status || 'active',
       })
     }
-  }, [category])
+
+    if (mode === "add") {
+      setFormData({
+        name: '',
+        slug: '',
+        products: '',
+        status: 'active',
+      })
+    }
+  }, [category, mode])
 
   if (!isOpen) return null
 
@@ -28,7 +37,11 @@ const EditCategory = ({ isOpen, onClose, category }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log('Updated Category:', formData)
+    if (mode === "add") {
+      console.log("Adding Category:", formData)
+    } else {
+      console.log("Updating Category:", formData)
+    }
     onClose()
   }
 
@@ -37,11 +50,10 @@ const EditCategory = ({ isOpen, onClose, category }) => {
       <div className="bg-white rounded-2xl max-w-xl w-full">
         {/* Header */}
         <div className="p-6 border-b border-gray-200 flex items-center justify-between">
-          <h2 className="text-xl font-bold text-gray-900">Edit Category</h2>
-          <button
-            onClick={onClose}
-            className="p-2 hover:bg-gray-100 rounded-lg"
-          >
+          <h2 className="text-xl font-bold text-gray-900">
+            {mode === "add" ? "Add Category" : "Edit Category"}
+          </h2>
+          <button onClick={onClose} className="p-2 hover:bg-gray-100 rounded-lg">
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
             </svg>
@@ -51,48 +63,43 @@ const EditCategory = ({ isOpen, onClose, category }) => {
         {/* Form */}
         <form onSubmit={handleSubmit} className="p-6 space-y-4">
           <div>
-            <label className="block text-sm font-semibold mb-2">
-              Category Name
-            </label>
+            <label className="block text-sm font-semibold mb-2">Category Name</label>
             <input
               type="text"
               name="name"
               value={formData.name}
               onChange={handleChange}
+              placeholder="e.g. Fashion"
               className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary"
             />
           </div>
 
           <div>
-            <label className="block text-sm font-semibold mb-2">
-              Slug
-            </label>
+            <label className="block text-sm font-semibold mb-2">Slug</label>
             <input
               type="text"
               name="slug"
               value={formData.slug}
               onChange={handleChange}
+              placeholder="e.g. fashion"
               className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary"
             />
           </div>
 
           <div>
-            <label className="block text-sm font-semibold mb-2">
-              Product Quantity
-            </label>
+            <label className="block text-sm font-semibold mb-2">Product Quantity</label>
             <input
               type="number"
               name="products"
               value={formData.products}
               onChange={handleChange}
+              placeholder="e.g. 50"
               className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary"
             />
           </div>
 
           <div>
-            <label className="block text-sm font-semibold mb-2">
-              Status
-            </label>
+            <label className="block text-sm font-semibold mb-2">Status</label>
             <select
               name="status"
               value={formData.status}
@@ -116,7 +123,7 @@ const EditCategory = ({ isOpen, onClose, category }) => {
               type="submit"
               className="flex-1 px-6 py-2.5 bg-primary text-white rounded-lg font-semibold hover:opacity-95"
             >
-              Update Category
+              {mode === "add" ? "Add Category" : "Update Category"}
             </button>
           </div>
         </form>
@@ -125,4 +132,4 @@ const EditCategory = ({ isOpen, onClose, category }) => {
   )
 }
 
-export default EditCategory
+export default CategoryForm

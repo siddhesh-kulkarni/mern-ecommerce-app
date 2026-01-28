@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import AdminLayout from '../../../Components/Admin/AdminLayout/page'
-import AddDiscount from './AddDiscount'
-import EditDiscount from './EditDiscount'
+import DiscountForm from './DiscountForm'
 import DeleteDiscount from './DeleteDiscount'
 
 const Discounts = () => {
@@ -136,9 +135,23 @@ const Discounts = () => {
         </div>
       </div>
 
-      <AddDiscount isOpen={showAddModal} onClose={() => setShowAddModal(false)} />
-      <EditDiscount isOpen={showEditModal} onClose={() => setShowEditModal(false)} discount={selectedDiscount} />
-      <DeleteDiscount isOpen={showDeleteModal} onClose={() => setShowDeleteModal(false)} discount={selectedDiscount} onConfirm={handleDeleteDiscount} />
+      <DiscountForm
+        isOpen={showAddModal}
+        onClose={() => setShowAddModal(false)}
+        mode="add"
+      />
+
+      <DiscountForm
+        isOpen={showEditModal}
+        onClose={() => setShowEditModal(false)}
+        discount={selectedDiscount}
+        mode="edit"
+      />
+      <DeleteDiscount
+        isOpen={showDeleteModal}
+        onClose={() => setShowDeleteModal(false)}
+        discount={selectedDiscount}
+        onConfirm={handleDeleteDiscount} />
     </AdminLayout>
   )
 }
